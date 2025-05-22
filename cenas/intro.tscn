@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciew4e6tqvdqc"]
+
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_37pbl"]
+[ext_resource type="Script" uid="uid://drv4kivq13nki" path="res://script/intro.gd" id="1_lr6up"]
+[ext_resource type="AudioStream" uid="uid://dbctijkul1jbr" path="res://audio/digitando.wav" id="3_85fs7"]
+[ext_resource type="AudioStream" uid="uid://blpxy25h0sxyp" path="res://audio/man-crying-1-184688.mp3" id="4_ib757"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr6up"]
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource("1_lr6up")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -4.0
+offset_right = 1175.0
+offset_bottom = 667.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.5
+offset_top = -78.5
+offset_right = 416.5
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_37pbl")
+theme_override_font_sizes/normal_font_size = 35
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.000494247
+theme_override_fonts/normal_font = ExtResource("1_37pbl")
+theme_override_font_sizes/normal_font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lr6up")
+text = "Aperte Espaço para continuar
+"
+
+[node name="Digitando" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_85fs7")
+volume_db = -13.867
+
+[node name="Choro" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ib757")
+volume_db = -19.549

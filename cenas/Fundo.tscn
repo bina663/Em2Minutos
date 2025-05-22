@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://kfa2kw7fn1ky"]
+
+[ext_resource type="AudioStream" uid="uid://bsmr1v4rb7aei" path="res://audio/menu_cortado.wav" id="1_yrp8l"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_yrp8l")
+autoplay = true

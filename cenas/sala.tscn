@@ -1,0 +1,56 @@
+[gd_scene load_steps=13 format=3 uid="uid://npr6oo6xmxq3"]
+
+[ext_resource type="PackedScene" uid="uid://dwxsvtd0y3a65" path="res://objetos/player.tscn" id="1_fsayg"]
+[ext_resource type="PackedScene" uid="uid://5ghhprrs2qgg" path="res://objetos/priosion.tscn" id="1_taouk"]
+[ext_resource type="PackedScene" uid="uid://jnul6v1k2fjr" path="res://cenas/porta.tscn" id="2_j5jkq"]
+[ext_resource type="PackedScene" uid="uid://csssbdu1hu6le" path="res://cenas/prisao.tscn" id="3_wf1ku"]
+[ext_resource type="PackedScene" uid="uid://mhu00pifljhp" path="res://cenas/corpo.tscn" id="4_36awg"]
+[ext_resource type="PackedScene" uid="uid://bmsui2yubxp1r" path="res://cenas/chao.tscn" id="5_fsayg"]
+[ext_resource type="PackedScene" uid="uid://r6ap5rgylp6n" path="res://objetos/estante.tscn" id="7_aei1v"]
+[ext_resource type="PackedScene" uid="uid://cd13defq8ach5" path="res://objetos/vassoura.tscn" id="8_0nhcv"]
+[ext_resource type="PackedScene" uid="uid://34qkb7njkjdm" path="res://objetos/armario.tscn" id="8_vwr2a"]
+[ext_resource type="PackedScene" uid="uid://l5l8cy2aivyq" path="res://objetos/luz.tscn" id="9_jtrk3"]
+[ext_resource type="PackedScene" uid="uid://c6nuo8ful5i3x" path="res://objetos/quadro.tscn" id="9_xs2om"]
+[ext_resource type="PackedScene" uid="uid://yip7uvx23kbf" path="res://objetos/Relogio.tscn" id="11_6pev0"]
+
+[node name="Sala" type="Node2D"]
+
+[node name="Parede" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 648.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="Priosion" parent="." instance=ExtResource("1_taouk")]
+position = Vector2(136, 316)
+
+[node name="Prisao" parent="." instance=ExtResource("3_wf1ku")]
+position = Vector2(168, 446)
+
+[node name="Porta" parent="." instance=ExtResource("2_j5jkq")]
+position = Vector2(1056, 405)
+
+[node name="estante" parent="." instance=ExtResource("7_aei1v")]
+position = Vector2(661, 316)
+
+[node name="Corpo" parent="." instance=ExtResource("4_36awg")]
+position = Vector2(384, 409)
+
+[node name="Vassoura" parent="." instance=ExtResource("8_0nhcv")]
+position = Vector2(568, 318)
+
+[node name="Luz" parent="." instance=ExtResource("9_jtrk3")]
+position = Vector2(864, 306)
+
+[node name="Armario" parent="." instance=ExtResource("8_vwr2a")]
+position = Vector2(778, 317)
+
+[node name="Quadro" parent="." instance=ExtResource("9_xs2om")]
+position = Vector2(902, 374)
+
+[node name="Chao" parent="." instance=ExtResource("5_fsayg")]
+position = Vector2(-3, 464)
+
+[node name="Player" parent="." instance=ExtResource("1_fsayg")]
+position = Vector2(799, 420)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("11_6pev0")]

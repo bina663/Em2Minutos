@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd13defq8ach5"]
+
+[ext_resource type="Texture2D" uid="uid://bwktowhxxag0c" path="res://sprite/objeto/vassoura.png" id="1_0mxpu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccxxv"]
+size = Vector2(25, 54)
+
+[node name="Vassoura" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-66.5, 134)
+shape = SubResource("RectangleShape2D_ccxxv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-64, 119.5)
+scale = Vector2(0.2125, 0.253125)
+texture = ExtResource("1_0mxpu")

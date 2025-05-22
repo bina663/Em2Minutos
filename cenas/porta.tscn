@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://jnul6v1k2fjr"]
+
+[ext_resource type="Texture2D" uid="uid://cc1hfbkpjtsh8" path="res://sprite/objeto/porta.png" id="1_an7ts"]
+[ext_resource type="Script" uid="uid://00b5a3c47gpn" path="res://script/porta.gd" id="1_jiw3h"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="3_p8tku"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="4_p8tku"]
+[ext_resource type="PackedScene" uid="uid://dh0qedft6jw4q" path="res://objetos/press.tscn" id="5_rfy2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_scu1g"]
+size = Vector2(89, 118)
+
+[node name="Porta" type="Area2D"]
+script = ExtResource("1_jiw3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 16)
+shape = SubResource("RectangleShape2D_scu1g")
+
+[node name="SpritePorta" type="Sprite2D" parent="."]
+position = Vector2(16.25, 8.99998)
+scale = Vector2(0.684375, 0.8125)
+texture = ExtResource("1_an7ts")
+
+[node name="ScenePress" parent="." instance=ExtResource("3_p8tku")]
+position = Vector2(26, -80)
+scale = Vector2(0.366078, 0.338246)
+
+[node name="Dialog" parent="." instance=ExtResource("4_p8tku")]
+
+[node name="Press" parent="." instance=ExtResource("5_rfy2x")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

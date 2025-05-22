@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmgm0fprmecah"]
+
+[ext_resource type="Script" uid="uid://bn50gho8d5gv" path="res://script/final_1.gd" id="1_xl4cd"]
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_hv5ch"]
+[ext_resource type="AudioStream" uid="uid://dbctijkul1jbr" path="res://audio/digitando.wav" id="3_r0vu4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr6up"]
+
+[node name="Final1" type="CanvasLayer"]
+script = ExtResource("1_xl4cd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -30.0
+offset_top = -4.0
+offset_right = 1175.0
+offset_bottom = 667.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -416.0
+offset_top = -220.0
+offset_right = 417.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_hv5ch")
+theme_override_font_sizes/normal_font_size = 35
+
+[node name="TextEdit" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = -115.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 0.000494247
+theme_override_fonts/normal_font = ExtResource("2_hv5ch")
+theme_override_font_sizes/normal_font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lr6up")
+text = "Aperte Espaço para continuar
+"
+
+[node name="Digitando" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_r0vu4")
+volume_db = -13.867

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpeep23c8ihbk"]
+
+[ext_resource type="Script" uid="uid://b46muys4mtleq" path="res://script/game.gd" id="1_cibmi"]
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="2_emr73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lenm3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo5gj"]
+bg_color = Color(0.415686, 0.690196, 0.415686, 1)
+
+[node name="Game" type="CanvasLayer"]
+script = ExtResource("1_cibmi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_top = 122.0
+offset_right = 198.0
+offset_bottom = 236.0
+grow_horizontal = 2
+
+[node name="LockBar1" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_emr73")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxEmpty_lenm3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bo5gj")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_top = 23.0
+offset_right = 51.0
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_emr73")
+theme_override_font_sizes/font_size = 40

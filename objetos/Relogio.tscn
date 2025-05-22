@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://yip7uvx23kbf"]
+
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_pmvqe"]
+[ext_resource type="Script" uid="uid://bhpln8254vs70" path="res://script/relogio.gd" id="1_x26qv"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_numxf"]
+color = Color(0, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_x26qv")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 185.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("1_pmvqe")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxLine_numxf")
+text = "5:00"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

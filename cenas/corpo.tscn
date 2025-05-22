@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://mhu00pifljhp"]
+
+[ext_resource type="Script" uid="uid://385bwdq8r22h" path="res://script/corpo.gd" id="1_kpvvc"]
+[ext_resource type="Texture2D" uid="uid://bblaiex8q4mco" path="res://sprite/objeto/corpo.png" id="1_q0yj8"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="4_depy2"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="4_kr8tn"]
+[ext_resource type="PackedScene" uid="uid://cwahcxfcniaxa" path="res://objetos/progress_bar.tscn" id="5_kr8tn"]
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_s8lav"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpvvc"]
+size = Vector2(79, 34)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ppwl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8lav"]
+bg_color = Color(0.417234, 0.691316, 0.41753, 1)
+
+[node name="Corpo" type="Area2D"]
+script = ExtResource("1_kpvvc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-41.5, 54)
+shape = SubResource("RectangleShape2D_kpvvc")
+
+[node name="SpriteCorpo" type="Sprite2D" parent="."]
+position = Vector2(-43, 39)
+scale = Vector2(0.4625, 0.45)
+texture = ExtResource("1_q0yj8")
+
+[node name="Dialog" parent="." instance=ExtResource("4_depy2")]
+
+[node name="ScenePress" parent="." instance=ExtResource("4_kr8tn")]
+position = Vector2(-24, -34)
+scale = Vector2(0.504683, 0.493503)
+
+[node name="ProgressBar" parent="." instance=ExtResource("5_kr8tn")]
+offset_left = -88.0
+offset_top = -111.0
+offset_right = 3.0
+offset_bottom = -84.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_s8lav")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/background = SubResource("StyleBoxEmpty_7ppwl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_s8lav")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

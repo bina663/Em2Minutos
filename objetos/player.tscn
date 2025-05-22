@@ -1,0 +1,76 @@
+[gd_scene load_steps=13 format=3 uid="uid://dwxsvtd0y3a65"]
+
+[ext_resource type="Script" uid="uid://b0420pn2rohpx" path="res://script/player.gd" id="1_com50"]
+[ext_resource type="Texture2D" uid="uid://b826m4p348blq" path="res://sprite/jogador/idle.png" id="1_t83pv"]
+[ext_resource type="Texture2D" uid="uid://daa4bxgw5pk71" path="res://sprite/jogador/walk.png" id="3_pdod8"]
+[ext_resource type="AudioStream" uid="uid://dhnvsya7kxawi" path="res://audio/andando.mp3" id="4_v1tgg"]
+[ext_resource type="PackedScene" uid="uid://gm8d1sid5xje" path="res://objetos/items.tscn" id="5_klnee"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_com50"]
+atlas = ExtResource("1_t83pv")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdod8"]
+atlas = ExtResource("1_t83pv")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1tgg"]
+atlas = ExtResource("3_pdod8")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klnee"]
+atlas = ExtResource("3_pdod8")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsb6w"]
+atlas = ExtResource("3_pdod8")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v1tgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_com50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdod8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1tgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klnee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsb6w")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klnee"]
+size = Vector2(49, 78)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_com50")
+
+[node name="AnimatedPlayer" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 9)
+scale = Vector2(0.31875, 0.3)
+sprite_frames = SubResource("SpriteFrames_v1tgg")
+animation = &"walk"
+
+[node name="CollisionPlayer" type="CollisionShape2D" parent="."]
+position = Vector2(-7.62939e-06, 18)
+shape = SubResource("RectangleShape2D_klnee")
+
+[node name="Andando" type="AudioStreamPlayer2D" parent="." groups=["Player"]]
+stream = ExtResource("4_v1tgg")
+
+[node name="Items" parent="." instance=ExtResource("5_klnee")]

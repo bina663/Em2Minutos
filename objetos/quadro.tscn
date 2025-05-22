@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6nuo8ful5i3x"]
+
+[ext_resource type="Texture2D" uid="uid://bbhtqs4csdov1" path="res://sprite/objeto/quadro.png" id="1_67wre"]
+[ext_resource type="Script" uid="uid://bxfulxbdgjpai" path="res://script/quadro.gd" id="1_cv7r5"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="3_g70x8"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="4_lsv0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dujnt"]
+size = Vector2(82, 72)
+
+[node name="Quadro" type="Area2D"]
+script = ExtResource("1_cv7r5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, -4)
+shape = SubResource("RectangleShape2D_dujnt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8.99998, -4.00002)
+scale = Vector2(0.296875, 0.271875)
+texture = ExtResource("1_67wre")
+
+[node name="Dialog" parent="." instance=ExtResource("3_g70x8")]
+
+[node name="ScenePress" parent="." instance=ExtResource("4_lsv0m")]
+position = Vector2(19, -63)
+scale = Vector2(0.330619, 0.326482)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

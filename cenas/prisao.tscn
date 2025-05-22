@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://csssbdu1hu6le"]
+
+[ext_resource type="Texture2D" uid="uid://n51ytbqf284n" path="res://sprite/objeto/prisao_open.png" id="1_gi6qy"]
+[ext_resource type="Script" uid="uid://edud0rcih3aa" path="res://script/prisao.gd" id="1_gkdbi"]
+[ext_resource type="Texture2D" uid="uid://dshv0lekgtra1" path="res://sprite/objeto/prisao_fechado.png" id="2_gi6qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi6qy"]
+size = Vector2(316, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsyvb"]
+atlas = ExtResource("1_gi6qy")
+region = Rect2(0, 0, 3200, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjo60"]
+atlas = ExtResource("1_gi6qy")
+region = Rect2(3200, 0, 3200, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkdbi"]
+atlas = ExtResource("2_gi6qy")
+region = Rect2(0, 0, 3200, 3200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsd8d"]
+atlas = ExtResource("2_gi6qy")
+region = Rect2(3200, 0, 3200, 3200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gkdbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsyvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjo60")
+}],
+"loop": true,
+"name": &"aberto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkdbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsd8d")
+}],
+"loop": true,
+"name": &"trancado",
+"speed": 2.0
+}]
+
+[node name="Prisao" type="Area2D"]
+script = ExtResource("1_gkdbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-94, -64)
+shape = SubResource("RectangleShape2D_gi6qy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-72, -48)
+scale = Vector2(0.07125, 0.05)
+sprite_frames = SubResource("SpriteFrames_gkdbi")
+animation = &"trancado"

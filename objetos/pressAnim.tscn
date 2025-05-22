@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://oe6qv74rw7kq"]
+
+[ext_resource type="Texture2D" uid="uid://chyq2lw3022l0" path="res://sprite/objeto/pressione.png" id="1_3mnm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mnm6"]
+atlas = ExtResource("1_3mnm6")
+region = Rect2(0, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krt7r"]
+atlas = ExtResource("1_3mnm6")
+region = Rect2(1280, 0, 1280, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_voph8"]
+atlas = ExtResource("1_3mnm6")
+region = Rect2(2560, 0, 1280, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhh80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mnm6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krt7r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_voph8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ScenePress" type="Node2D"]
+
+[node name="PressAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(-34, -42)
+scale = Vector2(0.078125, 0.0710937)
+sprite_frames = SubResource("SpriteFrames_xhh80")

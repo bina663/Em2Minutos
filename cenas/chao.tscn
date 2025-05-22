@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmsui2yubxp1r"]
+
+[ext_resource type="Texture2D" uid="uid://cs4ijbl0swtxw" path="res://sprite/objeto/chao.png" id="1_480eu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1qk4"]
+size = Vector2(1152, 11)
+
+[node name="Chao" type="StaticBody2D"]
+
+[node name="TextureRectChao" type="TextureRect" parent="."]
+offset_right = 1161.0
+offset_bottom = 38.0
+texture = ExtResource("1_480eu")
+
+[node name="CollisionChao" type="CollisionShape2D" parent="."]
+position = Vector2(576, 20.5)
+shape = SubResource("RectangleShape2D_q1qk4")

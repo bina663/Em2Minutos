@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://5ghhprrs2qgg"]
+
+[ext_resource type="Texture2D" uid="uid://dpreemvm4su26" path="res://sprite/Prision/idle.png" id="1_iovcr"]
+[ext_resource type="Script" uid="uid://b6tt1kxhgieqw" path="res://script/prision.gd" id="1_y22k4"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="3_cxnv0"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="4_bi2gv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22k4"]
+atlas = ExtResource("1_iovcr")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxnv0"]
+atlas = ExtResource("1_iovcr")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi2gv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y22k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxnv0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cabla"]
+size = Vector2(640, 263.333)
+
+[node name="Priosion" type="Area2D"]
+script = ExtResource("1_y22k4")
+
+[node name="AnimatedSpritePrision" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, 113.25)
+scale = Vector2(0.3625, 0.301563)
+sprite_frames = SubResource("SpriteFrames_bi2gv")
+animation = &"idle"
+
+[node name="CollisionShapePrision" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 121.5)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("RectangleShape2D_cabla")
+
+[node name="ScenePress" parent="." instance=ExtResource("3_cxnv0")]
+position = Vector2(20, -2)
+scale = Vector2(0.598567, 0.506233)
+
+[node name="Dialog" parent="." instance=ExtResource("4_bi2gv")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

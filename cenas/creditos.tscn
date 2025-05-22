@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8ufr6bejjej"]
+
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="1_dmlrq"]
+[ext_resource type="Script" uid="uid://d1231q444xhka" path="res://script/creditos.gd" id="1_f7osg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_itarq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f7osg"]
+bg_color = Color(0.0687983, 0.0687983, 0.0687982, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f7osg"]
+
+[sub_resource type="Theme" id="Theme_rdysq"]
+Button/styles/focus = SubResource("StyleBoxEmpty_itarq")
+Button/styles/hover = SubResource("StyleBoxFlat_f7osg")
+Button/styles/pressed = SubResource("StyleBoxEmpty_f7osg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rdysq"]
+
+[node name="Creditos" type="CanvasLayer"]
+script = ExtResource("1_f7osg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 724.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -463.0
+offset_top = -120.0
+offset_right = 463.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_dmlrq")
+theme_override_font_sizes/normal_font_size = 24
+text = "Tudo feito com muito carinho por mim 💜  
+Sou conhecida como **Bina**, e este é meu **primeiro jogo solo** desenvolvido para uma **Game Jam**.
+
+Obrigado por jogar!
+
+📷 Instagram: @bina_oliver663  
+📺 YouTube: youtube.com/@binaoliver  
+💬 Discord: binaOliver
+"
+
+[node name="Voltar" type="Button" parent="."]
+offset_right = 172.0
+offset_bottom = 89.0
+theme = SubResource("Theme_rdysq")
+theme_override_fonts/font = ExtResource("1_dmlrq")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rdysq")
+text = "Voltar"
+
+[connection signal="pressed" from="Voltar" to="." method="voltar"]

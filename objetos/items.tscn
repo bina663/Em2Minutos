@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://gm8d1sid5xje"]
+
+[ext_resource type="Texture2D" uid="uid://c01xl46e8e2hv" path="res://sprite/objeto/grampo.png" id="1_80hxk"]
+[ext_resource type="Texture2D" uid="uid://ic1resyqbt5a" path="res://sprite/objeto/faca.png" id="2_w1mto"]
+[ext_resource type="Texture2D" uid="uid://kxqm8e8qb7wl" path="res://sprite/objeto/chave.png" id="3_6qklc"]
+
+[node name="Items" type="CanvasLayer"]
+
+[node name="grampo" type="TextureRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -341.0
+offset_top = 37.0
+offset_right = -259.0
+offset_bottom = 114.0
+grow_horizontal = 0
+texture = ExtResource("1_80hxk")
+expand_mode = 1
+
+[node name="Faca" type="TextureRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -237.0
+offset_top = 34.0
+offset_right = -156.0
+offset_bottom = 120.0
+grow_horizontal = 0
+texture = ExtResource("2_w1mto")
+expand_mode = 1
+
+[node name="ChaveFenda" type="TextureRect" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -117.0
+offset_top = 36.0
+offset_right = -36.0
+offset_bottom = 119.0
+grow_horizontal = 0
+texture = ExtResource("3_6qklc")
+expand_mode = 1

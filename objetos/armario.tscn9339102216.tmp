@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://34qkb7njkjdm"]
+
+[ext_resource type="Script" uid="uid://dpf54sdtd6pv1" path="res://script/armario.gd" id="1_no22u"]
+[ext_resource type="Texture2D" uid="uid://c2umouxvso525" path="res://sprite/objeto/armario.png" id="1_ysiqo"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="3_7v7bc"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="4_vlgvy"]
+[ext_resource type="PackedScene" uid="uid://cwahcxfcniaxa" path="res://objetos/progress_bar.tscn" id="5_vlgvy"]
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_daar3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gx5u"]
+size = Vector2(135, 146)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu2v1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ye4hr"]
+bg_color = Color(0.415686, 0.690196, 0.415686, 1)
+
+[node name="Armario" type="Area2D"]
+script = ExtResource("1_no22u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-60.5, 82)
+shape = SubResource("RectangleShape2D_1gx5u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-74.5, 83)
+scale = Vector2(0.534375, 0.48125)
+texture = ExtResource("1_ysiqo")
+
+[node name="Dialog" parent="." instance=ExtResource("3_7v7bc")]
+
+[node name="ScenePress" parent="." instance=ExtResource("4_vlgvy")]
+position = Vector2(-51, -30)
+scale = Vector2(0.520001, 0.48)
+
+[node name="ProgressBar" parent="." instance=ExtResource("5_vlgvy")]
+offset_left = -117.0
+offset_top = -117.0
+offset_right = 0.0
+offset_bottom = -90.0
+theme_override_fonts/font = ExtResource("6_daar3")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/background = SubResource("StyleBoxEmpty_pu2v1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ye4hr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

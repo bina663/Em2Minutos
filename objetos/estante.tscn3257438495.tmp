@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://r6ap5rgylp6n"]
+
+[ext_resource type="Texture2D" uid="uid://cqpfgjkvx0mmo" path="res://sprite/objeto/prateleira.png" id="1_4y5fl"]
+[ext_resource type="Script" uid="uid://d2ndv1nmmmihs" path="res://script/estante.gd" id="1_tlkn5"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="2_7euff"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="4_keoso"]
+[ext_resource type="PackedScene" uid="uid://cwahcxfcniaxa" path="res://objetos/progress_bar.tscn" id="5_jlw84"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7euff"]
+size = Vector2(121, 146)
+
+[node name="estante" type="Area2D"]
+script = ExtResource("1_tlkn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-88.5, 88)
+shape = SubResource("RectangleShape2D_7euff")
+
+[node name="Spriteestante" type="Sprite2D" parent="."]
+position = Vector2(-90.5, 85)
+scale = Vector2(0.434375, 0.46875)
+texture = ExtResource("1_4y5fl")
+
+[node name="ScenePress" parent="." instance=ExtResource("2_7euff")]
+position = Vector2(-75, -17)
+scale = Vector2(0.407196, 0.440376)
+
+[node name="Dialog" parent="." instance=ExtResource("4_keoso")]
+
+[node name="ProgressBar" parent="." instance=ExtResource("5_jlw84")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh0qedft6jw4q"]
+
+[ext_resource type="AudioStream" uid="uid://dm4fqujnh3240" path="res://audio/e.wav" id="1_i2h6s"]
+
+[node name="Press" type="AudioStreamPlayer2D"]
+rotation = 0.000622703
+stream = ExtResource("1_i2h6s")

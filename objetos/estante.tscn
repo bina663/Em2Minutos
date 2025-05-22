@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://r6ap5rgylp6n"]
+
+[ext_resource type="Texture2D" uid="uid://cqpfgjkvx0mmo" path="res://sprite/objeto/prateleira.png" id="1_4y5fl"]
+[ext_resource type="Script" uid="uid://d2ndv1nmmmihs" path="res://script/estante.gd" id="1_tlkn5"]
+[ext_resource type="PackedScene" uid="uid://oe6qv74rw7kq" path="res://objetos/pressAnim.tscn" id="2_7euff"]
+[ext_resource type="PackedScene" uid="uid://fgmn44vqo6uk" path="res://objetos/dialog.tscn" id="4_keoso"]
+[ext_resource type="PackedScene" uid="uid://cwahcxfcniaxa" path="res://objetos/progress_bar.tscn" id="5_jlw84"]
+[ext_resource type="FontFile" uid="uid://c0j2c5iaod67o" path="res://font/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf" id="6_8abd3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7euff"]
+size = Vector2(121, 146)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vgnrm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_porom"]
+bg_color = Color(0.415686, 0.690196, 0.415686, 1)
+
+[node name="estante" type="Area2D"]
+script = ExtResource("1_tlkn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-88.5, 88)
+shape = SubResource("RectangleShape2D_7euff")
+
+[node name="Spriteestante" type="Sprite2D" parent="."]
+position = Vector2(-90.5, 85)
+scale = Vector2(0.434375, 0.46875)
+texture = ExtResource("1_4y5fl")
+
+[node name="ScenePress" parent="." instance=ExtResource("2_7euff")]
+position = Vector2(-75, -17)
+scale = Vector2(0.407196, 0.440376)
+
+[node name="Dialog" parent="." instance=ExtResource("4_keoso")]
+
+[node name="ProgressBar" parent="." instance=ExtResource("5_jlw84")]
+offset_left = -180.0
+offset_top = -99.0
+offset_right = -2.0
+offset_bottom = -62.0
+theme_override_fonts/font = ExtResource("6_8abd3")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/background = SubResource("StyleBoxEmpty_vgnrm")
+theme_override_styles/fill = SubResource("StyleBoxFlat_porom")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
